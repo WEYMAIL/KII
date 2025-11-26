@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animaciones Personalizadas para Streamers - Kick & Twitch</title>
+
+    <meta property="og:title" content="Animaciones personalizadas para streamers – ¡Haz tus alerts únicas!" />
+    <meta property="og:description" content="💥 Dale vida a tu stream en Kick o Twitch con alertas animadas originales y de alta calidad. ¡Compra o dona!" />
+    <meta property="og:image" content="https://i.ibb.co/RT9nMsrD/Captura-de-pantalla-2025-11-25-225403.png" />
+    <meta property="og:url" content="https://buymeacoffee.com/luisnunez" /> 
+    <meta property="og:type" content="website" />
+    <style>
+        :root {
+            --primary-color: #A064FF; /* Púrpura llamativo */
+            --secondary-color: #171717; /* Fondo oscuro */
+            --text-color: #f0f0f0; /* Texto claro */
+            --card-bg: #222222; /* Fondo de las tarjetas */
+            --accent-color: #FFD700; /* Oro para destacar */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Sección de Llamada a la Acción (CTA) Principal */
+        .top-cta {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #7A00FF 0%, #A064FF 100%);
+            color: white;
+            margin-bottom: 40px;
+            border-bottom: 8px solid var(--accent-color);
+        }
+
+        .top-cta h2 {
+            font-size: 3em;
+            margin: 0 0 10px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button-big {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--secondary-color);
+            padding: 20px 40px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 1.8em;
+            font-weight: 900;
+            margin-top: 20px;
+            transition: background-color 0.3s, transform 0.2s;
+            letter-spacing: 1px;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .cta-button-big:hover {
+            background-color: #FFC107;
+            transform: scale(1.05);
+        }
+        
+        /* Estilos Generales del Contenido */
+        header {
+            text-align: center;
+            padding: 20px 20px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 10px;
+            margin: 30px auto;
+            display: block;
+            box-shadow: 0 0 20px rgba(160, 100, 255, 0.5);
+        }
+
+        .description {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--primary-color);
+            margin: 50px 0 30px;
+            font-size: 2em;
+        }
+
+        .packages {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+
+        .package-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 30px;
+            width: 100%;
+            max-width: 350px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .package-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(160, 100, 255, 0.4);
+            border-color: var(--primary-color);
+        }
+
+        .package-card h3 {
+            color: var(--primary-color);
+            font-size: 1.8em;
+            margin-top: 0;
+        }
+
+        .price {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #4CAF50; /* Verde para el precio */
+            margin-bottom: 15px;
+        }
+
+        .price.premium {
+            color: var(--accent-color); /* Oro para el premium */
+        }
+
+        .features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .features li::before {
+            content: '✅';
+            margin-right: 10px;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: bold;
+            text-align: center;
+            margin-top: 15px;
+            display: block;
+        }
+
+        .notes {
+            background-color: #2b2b2b;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .notes h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+            text-align: center;
+        }
+        
+        .notes ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .notes ul li {
+            margin-bottom: 15px;
+        }
+
+        .notes ul li::before {
+            content: '📌';
+            margin-right: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            border-top: 1px solid #333;
+            font-size: 0.9em;
+            color: #888;
+        }
+
+        /* Media Queries para hacerlo responsive */
+        @media (max-width: 768px) {
+            .top-cta h2 {
+                font-size: 2em;
+            }
+            .cta-button-big {
+                font-size: 1.5em;
+                padding: 15px 30px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .packages {
+                flex-direction: column;
+                align-items: center;
+            }
+            .package-card {
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="top-cta">
+        <h2>💜 DONA O COMPRA TUS ALERTAS ANIMADAS AHORA 💜</h2>
+        <p>¡El mejor soporte para tu stream empieza aquí!</p>
+        <a 
+            href="https://buymeacoffee.com/luisnunez" 
+            target="_blank" 
+            class="cta-button-big"
+        >
+            👉 IR A BUY ME A COFFEE 👈
+        </a>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Animaciones personalizadas para streamers – ¡Haz tus alerts únicas!</h1>
+        </header>
+
+        <img 
+            src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/174240215/original/ccb3ce4aa7702c04664bf8d4e76ddaf109b1116c/custom-animated-alert-for-your-stream-twich-discord-ecc.png" 
+            alt="Ejemplo de alerta animada personalizada para stream" 
+            class="hero-image"
+        >
+        
+        <div class="description">
+            <h2>💥 Dale vida a tu stream en Kick o Twitch con animaciones personalizadas, originales y de alta calidad.</h2>
+            <p>🎨 Escoge entre **GIF** o **WebM**, alta resolución y optimizado para tu transmisión.</p>
+        </div>
+
+        <h2 class="section-title">✨ Nuestros Paquetes de Animación ✨</h2>
+
+        <div class="packages">
+            <div class="package-card">
+                <h3>Básico</h3>
+                <div class="price">USD 25</div>
+                <ul class="features">
+                    <li>1 animación personalizada</li>
+                    <li>Archivo GIF o WebM</li>
+                    <li>Alta resolución</li>
+                </ul>
+            </div>
+
+            <div class="package-card">
+                <h3>Estándar</h3>
+                <div class="price">USD 40</div>
+                <ul class="features">
+                    <li>2 animaciones personalizadas</li>
+                    <li>Archivos GIF o WebM</li>
+                    <li>Alta resolución</li>
+                </ul>
+            </div>
+
+            <div class="package-card">
+                <h3>Premium 👑</h3>
+                <div class="price premium">USD 55</div>
+                <ul class="features">
+                    <li>3 animaciones personalizadas</li>
+                    <li>Archivos GIF o WebM</li>
+                    <li>Alta resolución</li>
+                </ul>
+                <span class="highlight">🔥 ¡Ahorra hasta USD 10 con este paquete!</span>
+            </div>
+        </div>
+
+        <div class="notes">
+            <h2>📝 Notas Importantes</h2>
+            <ul>
+                <li>Cada animación dura 2-5 segundos y se puede reproducir en bucle (loop).</li>
+                <li>Revisarás un boceto para aprobar antes de iniciar la animación final.</li>
+                <li>Solo se pueden solicitar cambios de color y pequeños ajustes después de finalizada la animación.</li>
+            </ul>
+        </div>
+        
+    </div>
+
+    <footer>
+        <p>💻 Visita y apóyanos aquí: <a href="https://buymeacoffee.com/luisnunez" target="_blank" style="color: var(--primary-color);">https://buymeacoffee.com/luisnunez</a></p>
+        <p>&copy; 2025 Servicios de Animación Personalizada. Creado para GitHub Pages.</p>
+    </footer>
+
+</body>
+</html>
