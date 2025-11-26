@@ -1,955 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HONOR PANEL – GOLD STRONG</title>
+    <title>Cuentas Kick Verificadas | Monetiza Desde Hoy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        /* Variables de color */
         :root {
-            --bg-main: #050505;
-            --bg-card: #0c0c0c;
-            --fg-gold: #FFD700;
-            --fg-text: #f5f5f5;
-            --fg-success: #00FF7F; /* Verde Neón */
-            --btn-accent: #FFD700;
-            --btn-stop: #2b2b2b;
-            --fg-error: #FF4500;
-            --fg-warning: #FFA500;
-            --fg-info: #1E90FF;
-            --fg-accent: #DAA520;
-            --kick-green: #00ff7f;
+            --color-kick-verde: #4cff4c;
+            --color-fondo-oscuro: #1a1a1a;
+            --color-texto-claro: #f0f0f0;
+            --color-acento-secundario: #00bfff; /* Un azul vibrante */
+            --color-rojo-comprar: #ff4c4c;
         }
 
+        /* Base y Reset */
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         body {
-            background: var(--bg-main);
-            color: var(--fg-text);
-            font-family: 'Inter', sans-serif;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--color-fondo-oscuro);
+            color: var(--color-texto-claro);
             line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 20px;
         }
 
-        .main {
-            width: 100%;
-            max-width: 900px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 18px;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        .header {
-            grid-column: 1 / 3;
+        a {
+            text-decoration: none;
+            color: var(--color-kick-verde);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--color-acento-secundario);
+        }
+
+        /* --- SECCIÓN HERO (INTRODUCCIÓN) --- */
+        .hero {
+            /* Simula un fondo oscuro y potencia el texto */
+            background: #0d0d0d; 
             text-align: center;
+            padding: 80px 0;
+            border-bottom: 5px solid var(--color-kick-verde);
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+            color: var(--color-kick-verde);
             margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        
+        .hero h1 strong {
+            color: var(--color-texto-claro);
         }
 
-        .title {
-            font-size: 2.4em;
-            font-weight: 900;
-            margin: 0;
-            background: linear-gradient(90deg, #FFF37A, #FFE047, #FFD700, #FFEA00);
-            -webkit-background-clip: text;
-            color: transparent;
-            text-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
+        .hero h2 {
+            font-size: 1.5em;
+            color: var(--color-acento-secundario);
+            margin-bottom: 30px;
         }
 
-        .subtitle {
-            margin: 0;
-            margin-top: 5px;
-            font-size: 0.85em;
-            letter-spacing: 3px;
-            color: #FFE047;
-            opacity: 0.9;
-        }
-
-        .card {
-            background: var(--bg-card);
-            padding: 18px;
-            border-radius: 14px;
-            border: 1px solid #FFD70080;
-            box-shadow: 0 0 10px rgba(255,215,0,0.25);
-        }
-
-        /* ESTILO PREDETERMINADO DE TÍTULO DE TARJETA */
-        .card h3 {
-            color: var(--fg-gold);
-            text-align: center;
-            font-size: 1.25em;
-            font-weight: 800;
-            margin-bottom: 15px;
-        }
-
-        .input-group {
-            margin-bottom: 12px;
-        }
-
-        .input-group label {
-            display: block;
-            margin-bottom: 4px;
-            font-size: 0.9em;
-            color: #eaeaea;
-        }
-
-        /* --- FILAS DE INPUTS (2 COLUMNAS) --- */
-        .input-row {
-            display: flex;
-            gap: 15px; /* Espacio entre los inputs */
-            margin-bottom: 12px;
-        }
-
-        /* Aseguramos que los input-group dentro de input-row compartan el espacio */
-        .input-row .input-group {
-            flex: 1;
-            margin-bottom: 0; /* Quitamos el margen duplicado */
-        }
-
-        input[type="text"], input[type="number"], textarea {
-            width: 100%;
-            padding: 10px;
+        .highlight-text {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--color-texto-claro);
+            background-color: #2a2a2a;
+            padding: 15px;
             border-radius: 8px;
-            background: var(--bg-card);
-            border: 1px solid #FFD70060;
-            color: var(--fg-text);
-            font-size: 0.9em;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--color-kick-verde);
+        }
+        
+        .kcips-info {
+            font-size: 1em;
+            color: #ccc;
+            margin-top: 15px;
+            padding: 0 50px;
+        }
+        
+        .kcips-info strong {
+            color: var(--color-kick-verde);
         }
 
-        input:focus, textarea:focus {
-            border-color: var(--fg-gold);
-            outline: none;
+        /* --- CATÁLOGO DE CUENTAS --- */
+        .catalogo {
+            padding: 60px 0;
         }
 
-        textarea {
-            resize: vertical;
+        .section-title {
+            text-align: center;
+            font-size: 2em;
+            color: var(--color-texto-claro);
+            margin-bottom: 40px;
+            border-bottom: 2px solid var(--color-acento-secundario);
+            display: inline-block;
+            padding-bottom: 10px;
+            width: 100%;
         }
 
-        .button-group {
+        /* Estructura de la grilla (2 en cada lado) */
+        .cuentas-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 2 columnas de igual ancho */
+            gap: 30px; /* Espacio entre las tarjetas */
+        }
+        
+        @media (max-width: 768px) {
+            .cuentas-grid {
+                grid-template-columns: 1fr; /* 1 columna en móviles */
+            }
+        }
+
+        /* Diseño de la Tarjeta (Card) de Cuenta */
+        .cuenta-card {
+            background-color: #222;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex; /* Para poner imagen y contenido lado a lado */
+            min-height: 250px;
+        }
+        
+        .cuenta-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(76, 255, 76, 0.2);
+        }
+        
+        .cuenta-img {
+            width: 40%; /* Imagen ocupa el 40% del ancho */
+            height: auto;
+            object-fit: cover;
+            min-height: 100%;
+        }
+        
+        .card-content {
+            width: 60%; /* Contenido ocupa el 60% del ancho */
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .cuenta-card h3 {
+            font-size: 1.4em;
+            color: var(--color-acento-secundario);
+            margin-bottom: 10px;
+        }
+
+        /* Tags (Verificado, Partner, KCIP) */
+        .tags {
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        .verified {
+            background-color: #008000; /* Verde oscuro */
+        }
+
+        .partner {
+            background-color: #800080; /* Púrpura */
+        }
+
+        .kcip {
+            background-color: var(--color-kick-verde);
+            color: #000;
+        }
+
+        /* Precios */
+        .precio {
+            font-size: 1.3em;
+            margin: 15px 0;
+            color: var(--color-texto-claro);
+        }
+        
+        .precio strong {
+            color: var(--color-rojo-comprar); /* Destacar el precio final */
+        }
+
+        /* Botones de Acción */
+        .actions {
             display: flex;
             gap: 10px;
             margin-top: 15px;
         }
 
         .btn {
-            padding: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 15px;
             border-radius: 8px;
-            border: none;
-            font-size: 1em;
             font-weight: 700;
-            cursor: pointer;
-            transition: 0.15s;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
             flex-grow: 1;
         }
 
-        .btn:active {
-            transform: scale(0.98);
+        .btn-primary {
+            background-color: var(--color-rojo-comprar);
+            color: #fff;
         }
 
-        .btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
+        .btn-primary:hover {
+            background-color: #cc3d3d;
         }
 
-        .btn-gold {
-            background: linear-gradient(90deg, #FFE34F, #FFD700);
-            color: #000;
-            box-shadow: 0 0 12px rgba(255, 215, 0, 0.45);
-        }
-        .btn-gold:hover {
-            background: linear-gradient(90deg, #FFF37A, #FFD700);
+        .btn-secondary {
+            background-color: #333;
+            color: var(--color-kick-verde);
+            border: 2px solid var(--color-kick-verde);
         }
 
-        .btn-stop {
-            background: var(--btn-stop);
-            color: var(--fg-gold);
-            border: 1px solid var(--fg-gold);
-        }
-        .btn-stop:hover {
-            background: #3a3a3a;
+        .btn-secondary:hover {
+            background-color: var(--color-kick-verde);
+            color: var(--color-fondo-oscuro);
         }
 
-        /* 🔒 Efecto Hacker para botón Ocultar/Mostrar */
-        .btn-hacker {
-            background: linear-gradient(45deg, #00ff00, #008000, #00ff00);
-            color: #000;
-            border: 1px solid #00ff00;
-            font-family: 'Courier New', monospace;
-            font-weight: bold;
-            text-shadow: 0 0 5px #00ff00;
-            box-shadow: 0 0 10px #00ff00;
-            position: relative;
-            overflow: hidden;
-        }
-        .btn-hacker:hover {
-            background: linear-gradient(45deg, #00ff00, #00cc00, #00ff00);
-            box-shadow: 0 0 15px #00ff00;
-            animation: glitch 0.3s infinite;
-        }
-        @keyframes glitch {
-            0% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
-            100% { transform: translate(0); }
-        }
-        /* Efecto de scanlines */
-        .hacker-scanlines {
-            position: relative;
-        }
-        .hacker-scanlines::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: repeating-linear-gradient(
-                0deg,
-                rgba(0, 255, 0, 0.03) 0px,
-                rgba(0, 255, 0, 0.03) 1px,
-                transparent 1px,
-                transparent 2px
-            );
-            pointer-events: none;
+        .buy-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
         }
 
-        /* --- Status Box --- */
-        .status-box {
-            margin-top: 15px;
-            padding: 12px;
-            background: #1a1a1a;
-            border-radius: 8px;
-            border: 1px solid #FFD70020;
-        }
-
-        .status-box h4 {
-            border-bottom: 1px solid #333;
-            padding-bottom: 5px;
-            margin-bottom: 8px;
-            color: var(--fg-gold);
-            font-size: 0.95em;
-        }
-
-        .status-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 6px;
-            font-size: 0.85em;
-        }
-
-        .status-indicator {
-            font-weight: bold;
-        }
-
-        .status-indicator.running { color: var(--fg-success); }
-        .status-indicator.stopped { color: #FF4444; }
-        .status-indicator.success { color: var(--fg-success); }
-        .status-indicator.warning { color: var(--fg-warning); }
-        .status-indicator.info { color: var(--fg-info); }
-
-        /* --- Clips Bot: Estilo FREE/Verde Neón --- */
-        #clipsBot {
-            border: 2px solid var(--fg-success);
-            background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%);
-        }
-        
-        /* 💡 CORRECCIÓN APLICADA AQUÍ: Título verde */
-        #clipsBot h3 {
-            color: var(--fg-success); /* Forzar el título a ser verde */
-        }
-        
-        .clips-free-badge { /* Estilo del texto "FREE SERVICE" dentro del H3 */
-            color: #00FF00;
-            font-size: 0.8em;
-            background: #00FF0020;
-            padding: 2px 8px;
-            border-radius: 10px;
-        }
-        
-        .clips-free-banner {
-            background: linear-gradient(90deg, #00FF00, #00FF80);
-            color: black;
-            padding: 12px;
-            border-radius: 8px;
-            margin-bottom: 15px;
+        /* --- FOOTER --- */
+        footer {
+            background-color: #111;
             text-align: center;
-            font-weight: bold;
-        }
-        
-        .clips-free-limits {
-            background: #00FF10;
-            color: black;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 15px;
-            font-size: 0.9em;
-        }
-        
-        .clips-free-counter {
-            background: #1A1A1A;
-            color: #00FF00;
-            padding: 8px;
-            border-radius: 5px;
-            margin: 10px 0;
-            text-align: center;
-            border: 1px solid #00FF00;
-        }
-        /* --- FIN Clips Bot Estilos --- */
-
-
-        /* --- Logs Panel --- */
-        .logs-card {
-            grid-column: 1 / 3;
-        }
-
-        .logs {
-            max-height: 170px;
-            overflow-y: auto;
-            font-size: 0.82em;
-            padding-right: 5px;
-        }
-
-        .log {
-            padding: 5px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            color: #f0f0f0;
-        }
-
-        .log-tag-success { color: var(--fg-success); }
-        .log-tag-error { color: var(--fg-error); }
-        .log-tag-accent { color: var(--btn-accent); }
-        .log-tag-stop { color: #FF4444; }
-        .log-tag-info { color: var(--fg-text); }
-        .log-tag-warning { color: var(--fg-warning); }
-
-        /* Toast notification */
-        .toast-notification {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 15px 30px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
-            color: var(--fg-text);
-            font-weight: bold;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-            z-index: 1000;
-        }
-
-        .toast-show {
-            opacity: 1;
-        }
-
-        /* Estilo para el botón de alternar fuera del card de licencia */
-        #licenseToggleContainer {
-            grid-column: 1 / 3;
-            text-align: right;
-            margin-bottom: 18px;
-        }
-        #toggleLicenseBtn {
-            flex-grow: 0;
+            padding: 20px 0;
+            border-top: 3px solid var(--color-kick-verde);
         }
     </style>
-</head>
+    </head>
 <body>
-    <div class="main">
-        <div class="header">
-            <h1 class="title">HONOR PANEL</h1>
-            <p class="subtitle">GOLD STRONG EDITION</p>
+
+    <header class="hero">
+        <div class="container">
+            <h1>VENDEMOS CUENTAS DE KICK CON **VERIFICADO Y KCIP**</h1>
+            <h2>¡Monetiza Desde Hoy Mismo!</h2>
+            <p class="highlight-text">
+                NUESTRAS CUENTAS YA ESTÁN **LISTAS PARA MONETIZAR** con Verificado y KCIP. Se entrega al instante de tu compra. ¡Confianza total con **más de 120 clientes satisfechos**!
+            </p>
+            <p class="kcips-info">
+                El **KCIP** (Programa de Incentivos para Creadores de Kick) paga por hora a los streamers que cumplen ciertos requisitos. Nuestras cuentas ya cumplen esto. Tienen **Verificado y KCIP**. ¡El camino directo a la monetización está aquí!
+            </p>
         </div>
-
-        <div id="licenseToggleContainer">
-            <button id="toggleLicenseBtn" class="btn btn-hacker">👁️ OCULTAR LICENCIA</button>
-        </div>
-
-        <div class="card hacker-scanlines" style="grid-column: 1 / 3; text-align: center;" id="licenseSection">
-            <h3>🔑 ACTIVACIÓN DE LICENCIA</h3>
-            <div class="input-group">
-                <label for="licenseKey">Ingresa tu clave de licencia</label>
-                <input type="text" id="licenseKey" placeholder="Ej: e1393935a959b4020a4491574f6490129f678acdaa92760471263db43487f823">
-            </div>
-            <div class="button-group">
-                <button id="activateLicenseBtn" class="btn btn-gold">ACTIVAR LICENCIA</button>
-                <button id="deactivateLicenseBtn" class="btn btn-stop">DESACTIVAR</button>
-            </div>
-
-            <div class="status-box">
-                <h4>ESTADO DE LICENCIA</h4>
-                <div class="status-item">
-                    <span class="label">Licencia:</span>
-                    <span id="licenseStatus" class="status-indicator stopped">NO ACTIVADA</span>
-                </div>
-                <div class="status-item">
-                    <span class="label">Límite Viewers:</span>
-                    <span id="licenseMaxViewers">0</span>
-                </div>
-                <div class="status-item">
-                    <span class="label">Límite Chat:</span>
-                    <span id="licenseMaxChat">0</span>
-                </div>
-                <div class="status-item">
-                    <span class="label">Expira:</span>
-                    <span id="licenseExpiration">N/A</span>
-                </div>
-            </div>
-        </div>
-
-        <div id="chatBot" class="card">
-            <h3>CHAT BOT</h3>
-            <div class="input-group">
-                <label for="chatChannelName">Nombre de Streamer o kick.com/...</label>
-                <input type="text" id="chatChannelName" placeholder="Ej: StreamerName">
-            </div>
-            <div class="input-group">
-                <label for="chatRoomId">Chatroom ID (Opcional)</label>
-                <input type="text" id="chatRoomId" placeholder="Ej: 1234567">
-            </div>
-
-            <div class="input-row">
-                <div class="input-group">
-                    <label for="chatAccountsCount">Cuentas a usar</label>
-                    <input type="number" id="chatAccountsCount" value="10" min="1" max="25">
-                </div>
-                <div class="input-group">
-                    <label for="accountsInfo">Límite licencia</label>
-                    <input type="text" id="accountsInfo" value="Máx: 25" disabled style="background: #1a1a1a; color: #FFD700;">
-                </div>
-            </div>
-            <div class="input-row">
-                <div class="input-group">
-                    <label for="chatMinShort">Delay Mín. (Corto - Segundos)</label>
-                    <input type="number" id="chatMinShort" value="15" min="1">
-                </div>
-                <div class="input-group">
-                    <label for="chatMaxShort">Delay Máx. (Corto - Segundos)</label>
-                    <input type="number" id="chatMaxShort" value="30" min="1">
-                </div>
-            </div>
-
-            <div class="input-row">
-                <div class="input-group">
-                    <label for="chatMinLong">Delay Mín. (Largo - Minutos)</label>
-                    <input type="number" id="chatMinLong" value="3" min="1">
-                </div>
-                <div class="input-group">
-                    <label for="chatMaxLong">Delay Máx. (Largo - Minutos)</label>
-                    <input type="number" id="chatMaxLong" value="8" min="1">
-                </div>
-            </div>
-
-            <div class="input-group">
-                <label for="customMessages">Mensajes Personalizados (Separados por línea)</label>
-                <textarea id="customMessages" rows="4"></textarea>
-            </div>
-
-            <div class="button-group">
-                <button id="startChatBtn" class="btn btn-gold">INICIAR CHAT</button>
-                <button id="stopChatBtn" class="btn btn-stop">DETENER CHAT</button>
-            </div>
-
-            <div class="status-box">
-                <h4>ESTADO ACTUAL</h4>
-                <div class="status-item">
-                    <span class="label">Proceso:</span>
-                    <span id="chatRunningStatus" class="status-indicator stopped">DETENIDO</span>
-                </div>
-                <div class="status-item">
-                    <span class="label">Streamer Activo:</span>
-                    <span id="chatStreamerName">N/A</span>
-                </div>
-                <div class="status-item">
-                    <span class="label">Mensajes Enviados:</span>
-                    <span id="chatSentMessages">0</span>
-                </div>
-                </div>
-        </div>
-
-        <div id="viewerBot" class="card">
-            <h3>VIEWER BOT</h3>
-            <div class="input-group">
-                <label for="viewerChannelName">Nombre de Streamer o kick.com/...</label>
-                <input type="text" id="viewerChannelName" placeholder="Ej: StreamerName">
-            </div>
-            <div class="input-group">
-                <label for="viewerCount">Cantidad de Viewers (Hilos)</label>
-                <input type="number" id="viewerCount" value="100" min="1" max="10000">
-            </div>
-
-            <div class="button-group">
-                <button id="startViewersBtn" class="btn btn-gold">INICIAR VIEWERS</button>
-                <button id="stopViewersBtn" class="btn btn-stop">DETENER VIEWERS</button>
-            </div>
-
-            <div class="status-box">
-                <h4>ESTADO ACTUAL</h4>
-                <div class="status-item">
-                    <span class="label">Proceso:</span>
-                    <span id="viewersRunningStatus" class="status-indicator stopped">DETENIDO</span>
-                </div>
-                <div class="status-item">
-                    <span class="label">Streamer Activo:</span>
-                    <span id="viewersStreamerName">N/A</span> </div>
-                <div class="status-item">
-                    <span class="label">Conexiones Activas:</span>
-                    <span id="viewersActiveConnections">0</span> </div>
-                <div class="status-item">
-                    <span class="label">Viewers en Kick:</span>
-                    <span id="viewersKickCount">0</span> </div>
-                <div class="status-item">
-                    <span class="label">Proxies Cargados:</span>
-                    <span id="viewersTotalProxies">5000</span> </div>
-            </div>
-
-            <div class="button-group">
-                <button id="loadResourcesBtn" class="btn btn-stop">RECARGAR PROXIES/TOKENS</button>
-            </div>
-        </div>
-
-        <div id="clipsBot" class="card">
-            <h3>🎬 CLIPS BOT <span class="clips-free-badge">FREE SERVICE</span></h3>
-
-            <div class="clips-free-banner">
-                🎁 <strong>SERVICIO 100% GRATIS</strong> 🎁
-            </div>
-
-            <div class="clips-free-limits">
-                <strong>📋 LÍMITES FREE:</strong><br>
-                • <strong>200 vistas</strong> por sesión<br>
-                • <strong>Recarga automática</strong> cada 15 min<br>
-                • <strong>Máximo 3 sesiones</strong> por IP/día<br>
-                • <strong>Sin registro</strong> - ¡Usa inmediatamente!
-            </div>
-
-            <div class="input-group">
-                <label for="clipUrl">URL del Clip de Kick</label>
-                <input type="text" id="clipUrl" placeholder="https://kick.com/usuario/clips/123">
-            </div>
-
-            <div class="input-group">
-                <label for="viewsCount">Vistas a enviar (Máx: 200)</label>
-                <input type="number" id="viewsCount" value="50" min="1" max="200">
-            </div>
-
-            <div id="freeCounter" class="clips-free-counter">
-                <strong>Vistas usadas: <span id="freeUsed">0</span>/200</strong>
-            </div>
-
-            <div class="button-group">
-                <button id="startClipsBtn" class="btn btn-gold">🚀 INICIAR VISTAS FREE</button>
-                <button id="stopClipsBtn" class="btn btn-stop">🛑 DETENER</button>
-            </div>
-
-            <div class="status-box">
-                <h4>ESTADO ACTUAL</h4>
-                <div class="status-item">
-                    <span class="label">Proceso:</span>
-                    <span id="clipsRunningStatus" class="status-indicator stopped">DETENIDO</span>
-                </div>
-                <div class="status-item">
-                    <span class="label">Vistas Enviadas:</span>
-                    <span id="clipsSentCount">0</span>
-                </div>
-                <div class="status-item">
-                    <span class="label">Servicio:</span>
-                    <span style="color: #00FF00; font-weight: bold;">FREE</span>
-                </div>
-            </div>
-        </div>
-        <div class="card logs-card">
-            <h3>REGISTRO DE ACTIVIDAD (LOGS)</h3>
-            <ul id="logsList" class="logs">
-                <li class="log log-tag-info">Sistema iniciado. Esperando comandos...</li>
-            </ul>
-        </div>
-    </div>
-
-    <div id="toastNotification" class="toast-notification"></div>
-
-    <script>
-        const UPDATE_INTERVAL = 2000;
-        let toastTimeout;
-
-        // --- FUNCIONES DE UTILIDAD ---
-        function showToast(message, duration = 5000) {
-            const toast = document.getElementById('toastNotification');
-            toast.textContent = message;
-            toast.classList.add('toast-show');
-
-            clearTimeout(toastTimeout);
-            toastTimeout = setTimeout(() => {
-                toast.classList.remove('toast-show');
-            }, duration);
-        }
-
-        function formatLogEntry(message, tag) {
-            const now = new Date();
-            const time = now.toLocaleTimeString();
-            return `[${time}] ${message}`;
-        }
-
-        function updateLogsList(logs) {
-            const logsList = document.getElementById('logsList');
-            logsList.innerHTML = '';
-
-            logs.forEach(logEntry => {
-                const logElement = document.createElement('li');
-                logElement.className = `log log-tag-${logEntry[1]}`;
-                logElement.textContent = logEntry[0];
-                logsList.appendChild(logElement);
-            });
-
-            logsList.scrollTop = logsList.scrollHeight;
-        }
-
-        // --- FUNCIONES PARA COMUNICARSE CON EL BACKEND ---
-        async function fetchAPI(endpoint, method = 'GET', data = null) {
-            try {
-                const options = {
-                    method: method,
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                };
-
-                if (data && (method === 'POST' || method === 'PUT')) {
-                    options.body = JSON.stringify(data);
-                }
-
-                console.log(`🌐 Llamando API: ${endpoint}`);
-                const response = await fetch(`/api${endpoint}`, options);
-                const result = await response.json();
-                console.log(`📨 Respuesta de ${endpoint}:`, result);
-                return result;
-
-            } catch (error) {
-                console.error(`❌ Error en API ${endpoint}:`, error);
-                showToast('Error de conexión con el servidor Flask', 5000);
-                return { success: false, message: 'Error de conexión' };
-            }
-        }
-
-        // 🆕 FUNCIONES DE LICENCIA
-        async function handleActivateLicense() {
-            const licenseKey = document.getElementById('licenseKey').value;
-
-            if (!licenseKey) {
-                showToast('❌ Ingresa una clave de licencia', 3000);
-                return;
-            }
-
-            const result = await fetchAPI('/license/activate', 'POST', {
-                license_key: licenseKey
-            });
-
-            if (result.success) {
-                showToast('✅ Licencia activada correctamente', 3000);
-                // Forzamos la actualización de estado para reflejar los cambios
-                fetchAndUpdateStatus();
-            } else {
-                showToast(`❌ Error: ${result.message}`, 5000);
-            }
-        }
-
-        async function handleDeactivateLicense() {
-            const result = await fetchAPI('/license/deactivate', 'POST');
-
-            if (result.success) {
-                showToast('🛑 Licencia desactivada', 3000);
-                // Forzamos la actualización de estado para reflejar los cambios
-                fetchAndUpdateStatus();
-            } else {
-                showToast(`❌ Error: ${result.message}`, 5000);
-            }
-        }
-
-        // --- HANDLERS PARA LOS BOTONES ---
-        async function handleStartChat() {
-            const channelName = document.getElementById('chatChannelName').value;
-            const chatroomId = document.getElementById('chatRoomId').value;
-            const minShort = parseFloat(document.getElementById('chatMinShort').value);
-            const maxShort = parseFloat(document.getElementById('chatMaxShort').value);
-            const minLong = parseFloat(document.getElementById('chatMinLong').value);
-            const maxLong = parseFloat(document.getElementById('chatMaxLong').value);
-            const customMessages = document.getElementById('customMessages').value;
-
-            // 🆕 NUEVO: Obtener número de cuentas seleccionadas
-            const chatAccounts = parseInt(document.getElementById('chatAccountsCount').value) || 10;
-
-            if (!channelName) {
-                showToast('❌ Ingresa un nombre de streamer', 3000);
-                return;
-            }
-
-            const result = await fetchAPI('/chat/start', 'POST', {
-                channel_name: channelName,
-                chatroom_id: chatroomId,
-                chat_accounts: chatAccounts, // 🆕 NUEVO PARÁMETRO
-                min_short: minShort,
-                max_short: maxShort,
-                min_long: minLong,
-                max_long: maxLong,
-                custom_messages: customMessages
-            });
-
-            if (result.success) {
-                showToast('✅ Chat Bot iniciado', 3000);
-            } else {
-                showToast(`❌ Error: ${result.message}`, 5000);
-            }
-        }
-
-        async function handleStopChat() {
-            const result = await fetchAPI('/chat/stop', 'POST');
-
-            if (result.success) {
-                showToast('🛑 Chat Bot detenido', 3000);
-            } else {
-                showToast(`❌ Error: ${result.message}`, 5000);
-            }
-        }
-
-        async function handleStartViewers() {
-            const channelName = document.getElementById('viewerChannelName').value;
-            const viewerCount = parseInt(document.getElementById('viewerCount').value);
-
-            if (!channelName) {
-                showToast('❌ Ingresa un nombre de streamer', 3000);
-                return;
-            }
-
-            const result = await fetchAPI('/viewers/start', 'POST', {
-                channel_name: channelName,
-                viewer_count: viewerCount
-            });
-
-            if (result.success) {
-                showToast('✅ Viewer Bot iniciado', 3000);
-            } else {
-                showToast(`❌ Error: ${result.message}`, 5000);
-            }
-        }
-
-        async function handleStopViewers() {
-            const result = await fetchAPI('/viewers/stop', 'POST');
-
-            if (result.success) {
-                showToast('🛑 Viewer Bot detenido', 3000);
-            } else {
-                showToast(`❌ Error: ${result.message}`, 5000);
-            }
-        }
-
-        async function handleLoadResources() {
-            const result = await fetchAPI('/load_resources', 'POST');
-
-            if (result.success) {
-                showToast('✅ Recursos recargados', 3000);
-            } else {
-                showToast(`❌ Error: ${result.message}`, 5000);
-            }
-        }
-
-        // --- FUNCIONES PARA CLIPS BOT (MODIFICADAS) ---
-        async function handleStartClips() {
-            const clipUrl = document.getElementById('clipUrl').value;
-            const viewsCount = parseInt(document.getElementById('viewsCount').value);
-
-            if (!clipUrl || !clipUrl.includes('kick.com')) {
-                showToast('❌ Ingresa una URL válida de Kick clip', 3000);
-                return;
-            }
-
-            const result = await fetchAPI('/clips/start', 'POST', {
-                clip_url: clipUrl,
-                views_count: viewsCount
-            });
-
-            if (result.success) {
-                showToast('✅ Clips Bot FREE iniciado', 3000); 
-                // 🆕 Actualizar contador free
-                if (result.free_used !== undefined) {
-                    document.getElementById('freeUsed').textContent = result.free_used;
-                }
-            } else {
-                showToast(`❌ Error: ${result.message}`, 5000);
-            }
-        }
-
-        async function handleStopClips() {
-            const result = await fetchAPI('/clips/stop', 'POST');
-            if (result.success) {
-                showToast('🛑 Clips Bot detenido', 3000);
-            } else {
-                showToast(`❌ Error: ${result.message}`, 5000);
-            }
-        }
-
-        // 🆕 Nueva función para actualizar contador free (MODIFICADA CON FALLBACK)
-        async function updateFreeCounter() {
-            try {
-                // 1. Intentar el endpoint específico de Clips Free Status
-                const statusSpecific = await fetchAPI('/clips/free-status');
-
-                if (statusSpecific.free_used !== undefined) {
-                    document.getElementById('freeUsed').textContent = statusSpecific.free_used;
-                } else if (statusSpecific.success === false && statusSpecific.message === 'Error de conexión') {
-                     // Error de red, no hacemos nada para evitar spam de consola.
-                }
-
-            } catch (error) {
-                // Si la llamada específica falla, intentamos el endpoint general /status como fallback
-                try {
-                    console.log("⚠️ Fallback: Intentando obtener el estado de clips desde /api/status");
-                    const statusGeneral = await fetchAPI('/status');
-
-                    if (statusGeneral.clips_free_used !== undefined) {
-                        document.getElementById('freeUsed').textContent = statusGeneral.clips_free_used;
-                    }
-                } catch (generalError) {
-                    // Silencioso - el estado general también falló o no contiene el dato.
-                    console.error("❌ Fallback de /api/status falló o no encontró clips_free_used.");
-                }
-            }
-        }
-        // Llamar periódicamente
-        setInterval(updateFreeCounter, 30000); // Actualiza cada 30 segundos
-
-        // --- FUNCIÓN PRINCIPAL DE ACTUALIZACIÓN DE ESTADO ---
-        async function fetchAndUpdateStatus() {
-            try {
-                const status = await fetchAPI('/status');
-
-                if (!status || !status.success) {
-                    return;
-                }
-
-                console.log("🔍 DATOS DE LICENCIA DEL BACKEND:", {
-                    is_licensed: status.is_licensed,
-                    max_viewers: status.max_viewers,
-                    max_chat_accounts: status.max_chat_accounts,
-                    expiration_date: status.expiration_date
-                });
-
-                updateLogsList(status.logs);
-
-                // --- CHAT BOT ---
-                const chatRunning = status.chat_running || false;
-                const chatStatus = chatRunning ? '🟢 ACTIVO' : '🟡 DESCONECTADO';
-                const chatIndicatorClass = chatRunning ? 'running' : 'warning';
-
-                document.getElementById('chatRunningStatus').textContent = chatStatus;
-                document.getElementById('chatRunningStatus').className = `status-indicator ${chatIndicatorClass}`;
-                document.getElementById('chatStreamerName').textContent = chatRunning ? (status.chat_streamer_name || 'N/A') : 'N/A';
-                document.getElementById('chatSentMessages').textContent = chatRunning ? (status.chat_sent_messages || 0) : 0;
-
-                // LÓGICA DE ACTUALIZAR LÍMITES AUTOMÁTICAMENTE (CHAT BOT)
-                const maxChatAccounts = status.max_chat_accounts || 25;
-                document.getElementById('chatAccountsCount').max = maxChatAccounts;
-                document.getElementById('accountsInfo').value = `Máx: ${maxChatAccounts}`;
-
-
-                // --- VIEWER BOT ---
-                const viewerRunning = status.viewer_running || false;
-                const viewerStatus = viewerRunning ? '🟢 ACTIVO' : '🔴 DETENIDO';
-                const viewerIndicatorClass = viewerRunning ? 'running' : 'stopped';
-
-                document.getElementById('viewersRunningStatus').textContent = viewerStatus;
-                document.getElementById('viewersRunningStatus').className = `status-indicator ${viewerIndicatorClass}`;
-                document.getElementById('viewersStreamerName').textContent = status.channel_name || 'N/A';
-                document.getElementById('viewersActiveConnections').textContent = status.viewer_connections || 0;
-                document.getElementById('viewersKickCount').textContent = status.viewer_kick_count || 0;
-                document.getElementById('viewersTotalProxies').textContent = status.total_proxies || 5000;
-
-                // --- CLIPS BOT (ACTUALIZADO) ---
-                const clipsRunning = status.clips_running || false;
-                const clipsStatus = clipsRunning ? '🟢 ACTIVO' : '🔴 DETENIDO';
-                const clipsIndicatorClass = clipsRunning ? 'running' : 'stopped';
-
-                document.getElementById('clipsRunningStatus').textContent = clipsStatus;
-                document.getElementById('clipsRunningStatus').className = `status-indicator ${clipsIndicatorClass}`;
-
-                document.getElementById('clipsSentCount').textContent = status.clips_sent_count || 0;
-
-                // Actualizar contador free usado
-                if (status.clips_free_used !== undefined) {
-                    document.getElementById('freeUsed').textContent = status.clips_free_used;
-                }
-
-                // --- LICENCIA ---
-                const isLicensed = status.is_licensed || false;
-                const licenseStatusText = isLicensed ? '✅ ACTIVADA' : '❌ NO ACTIVADA';
-                const licenseIndicatorClass = isLicensed ? 'success' : 'stopped';
-
-                document.getElementById('licenseStatus').textContent = licenseStatusText;
-                document.getElementById('licenseStatus').className = `status-indicator ${licenseIndicatorClass}`;
-                document.getElementById('licenseMaxViewers').textContent = status.max_viewers || 0;
-                document.getElementById('licenseMaxChat').textContent = status.max_chat_accounts || 0;
-                document.getElementById('licenseExpiration').textContent = status.expiration_date || 'N/A';
-
-                // Ajustar el max del viewer bot input según licencia
-                document.getElementById('viewerCount').max = status.max_viewers || 10000;
-
-            } catch (error) {
-                console.error("❌ Error al obtener el estado:", error);
-                // No mostrar toast de error de estado en cada intervalo.
-            }
-        }
-
-        // --- INICIALIZACIÓN Y EVENT LISTENERS ---
-        function setupEventListeners() {
-            // Licencia
-            document.getElementById('activateLicenseBtn').addEventListener('click', handleActivateLicense);
-            document.getElementById('deactivateLicenseBtn').addEventListener('click', handleDeactivateLicense);
+    </header>
+
+    <section class="catalogo">
+        <div class="container">
+            <h2 class="section-title">⭐ Nuestro Catálogo de Cuentas Premium ⭐</h2>
             
-            // Chat Bot
-            document.getElementById('startChatBtn').addEventListener('click', handleStartChat);
-            document.getElementById('stopChatBtn').addEventListener('click', handleStopChat);
-
-            // Viewer Bot
-            document.getElementById('startViewersBtn').addEventListener('click', handleStartViewers);
-            document.getElementById('stopViewersBtn').addEventListener('click', handleStopViewers);
-            document.getElementById('loadResourcesBtn').addEventListener('click', handleLoadResources);
-
-            // Clips Bot
-            document.getElementById('startClipsBtn').addEventListener('click', handleStartClips);
-            document.getElementById('stopClipsBtn').addEventListener('click', handleStopClips);
-            
-            // Toggle Licencia
-            document.getElementById('toggleLicenseBtn').addEventListener('click', function() {
-                const section = document.getElementById('licenseSection');
-                const btn = document.getElementById('toggleLicenseBtn');
+            <div class="cuentas-grid">
                 
-                if (section.style.display === 'none') {
-                    section.style.display = 'block';
-                    btn.textContent = '👁️ OCULTAR LICENCIA';
-                } else {
-                    section.style.display = 'none';
-                    btn.textContent = '🔒 MOSTRAR LICENCIA';
-                }
-            });
-        }
-        
-        // --- INICIO DEL PANEL ---
-        document.addEventListener('DOMContentLoaded', () => {
-            setupEventListeners();
-            fetchAndUpdateStatus();
-            updateFreeCounter(); // Llama una vez al inicio
+                <div class="cuenta-card">
+                    <img src="https://i.ibb.co/VW5bGydw/12k.png" alt="Imagen Cuenta 12,200 seguidores Kick" class="cuenta-img">
+                    <div class="card-content">
+                        <h3>Cuenta 12,200 Seguidores</h3>
+                        <div class="tags">
+                            <span class="tag verified">✅ Verificada</span>
+                            <span class="tag partner">🤝 Partner</span>
+                            <span class="tag kcip">💸 KCIP Activo</span>
+                        </div>
+                        <p class="precio">
+                            Precio: **S/250** — **USD 55**
+                        </p>
+                        <div class="actions">
+                            <a href="cuenta12k.html" class="btn btn-primary">
+                                <img src="https://i.ibb.co/80Y5gH2/Comprar-Icon.png" alt="Icono Comprar" class="buy-icon">
+                                Comprar Ahora
+                            </a>
+                            <a href="cuenta12k.html" class="btn btn-secondary">Leer Más</a>
+                        </div>
+                    </div>
+                </div>
 
-            // Bucle de actualización principal
-            setInterval(fetchAndUpdateStatus, UPDATE_INTERVAL);
-        });
+                <div class="cuenta-card">
+                    <img src="https://i.ibb.co/W41hmBzT/52K.png" alt="Imagen Cuenta 52,600 seguidores Kick" class="cuenta-img">
+                    <div class="card-content">
+                        <h3>Cuenta 52,600 Seguidores</h3>
+                        <div class="tags">
+                            <span class="tag verified">✅ Verificada</span>
+                            <span class="tag partner">🤝 Partner</span>
+                            <span class="tag kcip">💸 KCIP Activo</span>
+                        </div>
+                        <p class="precio">
+                            Precio: **S/500** — **USD 110**
+                        </p>
+                        <div class="actions">
+                            <a href="cuenta52k.html" class="btn btn-primary">
+                                <img src="https://i.ibb.co/80Y5gH2/Comprar-Icon.png" alt="Icono Comprar" class="buy-icon">
+                                Comprar Ahora
+                            </a>
+                            <a href="cuenta52k.html" class="btn btn-secondary">Leer Más</a>
+                        </div>
+                    </div>
+                </div>
 
-    </script>
+                <div class="cuenta-card">
+                    <img src="https://i.ibb.co/5g0JGK3r/67K.png" alt="Imagen Cuenta 67,500 seguidores Kick" class="cuenta-img">
+                    <div class="card-content">
+                        <h3>Cuenta 67,500 Seguidores</h3>
+                        <div class="tags">
+                            <span class="tag verified">✅ Verificada</span>
+                            <span class="tag partner">🤝 Partner</span>
+                            <span class="tag kcip">💸 KCIP Activo</span>
+                        </div>
+                        <p class="precio">
+                            Precio: **S/600** — **USD 135**
+                        </p>
+                        <div class="actions">
+                            <a href="cuenta67k.html" class="btn btn-primary">
+                                <img src="https://i.ibb.co/80Y5gH2/Comprar-Icon.png" alt="Icono Comprar" class="buy-icon">
+                                Comprar Ahora
+                            </a>
+                            <a href="cuenta67k.html" class="btn btn-secondary">Leer Más</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cuenta-card">
+                    <img src="https://i.ibb.co/qFRrTYht/207K.png" alt="Imagen Cuenta 207,500 seguidores Kick" class="cuenta-img">
+                    <div class="card-content">
+                        <h3>Cuenta 207,500 Seguidores</h3>
+                        <div class="tags">
+                            <span class="tag verified">✅ Verificada</span>
+                            <span class="tag partner">🤝 Partner</span>
+                            <span class="tag kcip">💸 KCIP Activo</span>
+                        </div>
+                        <p class="precio">
+                            Precio: **S/1,000** — **USD 220**
+                        </p>
+                        <div class="actions">
+                            <a href="cuenta207k.html" class="btn btn-primary">
+                                <img src="https://i.ibb.co/80Y5gH2/Comprar-Icon.png" alt="Icono Comprar" class="buy-icon">
+                                Comprar Ahora
+                            </a>
+                            <a href="cuenta207k.html" class="btn btn-secondary">Leer Más</a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Venta de Cuentas Kick Premium. ¡Tu éxito comienza hoy!</p>
+        </div>
+    </footer>
+
 </body>
 </html>
