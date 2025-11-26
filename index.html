@@ -9,10 +9,10 @@
         :root {
             --primary: #00ff00; /* Verde Kick */
             --secondary: #000000;
-            --accent: #ff5500; /* Naranja para el botón original (lo cambiaremos a Azul FB) */
+            --accent: #ff5500; 
             --text: #ffffff;
             --card-bg: #1a1a1a;
-            --facebook-blue: #1877f2; /* Color específico de Facebook */
+            --facebook-blue: #1877f2; 
         }
         
         * {
@@ -141,10 +141,10 @@
             margin: 15px 0;
         }
         
-        /* Estilo modificado para el botón de Facebook */
+        /* Estilo para el botón de Facebook */
         .btn {
             display: inline-block;
-            background-color: var(--facebook-blue); /* Usamos el azul de Facebook */
+            background-color: var(--facebook-blue); 
             color: white;
             padding: 12px 25px;
             border-radius: 5px;
@@ -160,7 +160,7 @@
         }
         
         .btn:hover {
-            background-color: #1a60c2; /* Azul más oscuro al pasar el mouse */
+            background-color: #1a60c2; 
         }
 
         .info-section {
@@ -168,11 +168,19 @@
             padding: 40px;
             border-radius: 10px;
             margin: 50px 0;
+            /* Nuevo estilo para hacer la sección más llamativa */
+            border: 3px solid var(--primary); 
         }
         
         .info-section h2 {
             margin-bottom: 20px;
             color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-section p {
+            margin-bottom: 15px;
         }
         
         .benefits {
@@ -203,7 +211,6 @@
             border-top: 2px solid var(--primary);
         }
         
-        /* Eliminamos .contact-info ya que solo queda el enlace de Facebook */
         .social-link {
             font-size: 1.1rem;
             margin: 10px 0;
@@ -219,6 +226,9 @@
             
             .catalog {
                 grid-template-columns: 1fr;
+            }
+            .info-section {
+                padding: 20px;
             }
         }
     </style>
@@ -298,15 +308,40 @@
                     <a href="https://www.facebook.com/KickMercado" target="_blank" class="btn">CONTACTAR EN FACEBOOK</a>
                 </div>
             </div>
+
+            <div class="account-card">
+                <img src="https://i.ibb.co/DP9MNQxx/1M.png" alt="Cuenta 1 Millón de Seguidores" class="account-image">
+                <div class="account-info">
+                    <div class="account-followers">1,000,000 Seguidores</div>
+                    <div class="account-badges">
+                        <span class="badge">Verificada</span>
+                        <span class="badge">Partner</span>
+                        <span class="badge">KCIP</span>
+                        <span class="badge" style="background-color: #ff00ff;">💎 PREMIUM</span>
+                    </div>
+                    <div class="account-price" style="color: var(--primary);">S/4,000 — USD 1,000</div>
+                    <a href="https://www.facebook.com/KickMercado" target="_blank" class="btn">CONTACTAR EN FACEBOOK</a>
+                </div>
+            </div>
+
         </div>
     </section>
     
     <section class="container">
         <div class="info-section">
-            <h2>¿QUÉ ES EL KCIP?</h2>
-            <p>El KCIP es el Programa de Incentivos para Creadores de Kick, el cual paga por hora a los streamers que cumplen ciertos requisitos de visualizaciones, horas de transmisión y otros criterios. Este pago por hora es una recompensa adicional a las ganancias que generan por suscripciones y publicidad.</p>
-            <p>Los montos pueden variar, pero se ha reportado que Kick paga entre $13 y $17 por hora a creadores que cumplen con los requisitos mínimos, aunque los contratos de creadores más grandes pueden generar una paga garantizada mayor.</p>
-            <p class="highlight">NUESTRAS CUENTAS YA CUMPLEN ESTO. TIENEN VERIFICADO Y KCIP</p>
+            <h2>🔥 SALTA LA ESPERA Y EMPIEZA A GANAR HOY 🔥</h2>
+            <p><strong>El KCIP y el Programa Partner de Kick</strong> representan una oportunidad de monetización inigualable. Mientras otros luchan por cumplir horas de transmisión y alcanzar los 75 concurrent viewers, <strong>usted puede empezar inmediatamente.</strong></p>
+            
+            <h3>¿CÓMO FUNCIONA EL KCIP (CREATOR INCENTIVE PROGRAM)?</h3>
+            <p>Este programa paga por cada Stream completado. Su pago por hora (30 soles - 70 soles o más) se determina por variables clave como la audiencia concurrente (CCV) y la interacción en el chat. **¡Nuestras cuentas ya están verificadas y pre-calificadas con KCIP activo!**</p>
+            
+            <p class="highlight" style="font-size: 1.3rem; margin-top: 25px;">
+                **NUESTRAS CUENTAS YA TIENEN ESTOS REQUISITOS:** Solo necesita adquirir una y empezar a transmitir.
+            </p>
+            
+            <p style="margin-top: 15px; font-weight: 600;">
+                <span class="highlight">OFERTA EXCLUSIVA:</span> Le ofrecemos soporte 24/ para asegurar una transición exitosa a la monetización en Kick.
+            </p>
         </div>
         
         <h2 class="section-title">BENEFICIOS</h2>
