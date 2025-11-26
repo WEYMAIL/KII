@@ -8,8 +8,7 @@
     <meta property="og:title" content="Animaciones personalizadas para streamers – ¡Haz tus alerts únicas!" />
     <meta property="og:description" content="💥 Dale vida a tu stream en Kick o Twitch con alertas animadas originales y de alta calidad. ¡Compra o dona!" />
     <meta property="og:image" content="https://i.ibb.co/RT9nMsrD/Captura-de-pantalla-2025-11-25-225403.png" />
-    <meta property="og:url" content="https://buymeacoffee.com/luisnunez" /> 
-    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.weymail.com" /> <meta property="og:type" content="website" />
     <style>
         :root {
             --primary-color: #A064FF; /* Púrpura llamativo */
@@ -17,6 +16,8 @@
             --text-color: #f0f0f0; /* Texto claro */
             --card-bg: #222222; /* Fondo de las tarjetas */
             --accent-color: #FFD700; /* Oro para destacar */
+            --sale-color: #E74C3C; /* Rojo para ofertas */
+            --old-price-color: #777; /* Color para precio tachado */
         }
 
         body {
@@ -171,7 +172,79 @@
             margin-top: 15px;
             display: block;
         }
+        
+        /* ESTILOS DE OFERTAS AÑADIDOS */
+        .offer-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
 
+        .offer-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            width: 100%;
+            max-width: 350px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 2px solid var(--sale-color);
+        }
+
+        .offer-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .offer-title {
+            font-size: 1.3em;
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+
+        .current-price {
+            font-size: 1.8em;
+            color: var(--sale-color);
+            font-weight: bold;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .old-price {
+            color: var(--old-price-color);
+            text-decoration: line-through;
+            font-size: 1em;
+            display: inline-block;
+        }
+
+        .discount-badge {
+            display: inline-block;
+            background-color: var(--sale-color);
+            color: white;
+            padding: 5px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 0.9em;
+            margin-left: 10px;
+        }
+        
+        .sale-timer {
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        .stock-info {
+            color: #FFC107;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+        
+        /* NOTAS */
         .notes {
             background-color: #2b2b2b;
             padding: 30px;
@@ -210,23 +283,14 @@
 
         /* Media Queries para hacerlo responsive */
         @media (max-width: 768px) {
-            .top-cta h2 {
-                font-size: 2em;
-            }
-            .cta-button-big {
-                font-size: 1.5em;
-                padding: 15px 30px;
-            }
-            h1 {
-                font-size: 2em;
-            }
-            .packages {
+            .top-cta h2 { font-size: 2em; }
+            .cta-button-big { font-size: 1.5em; padding: 15px 30px; }
+            h1 { font-size: 2em; }
+            .packages, .offer-section {
                 flex-direction: column;
                 align-items: center;
             }
-            .package-card {
-                max-width: 90%;
-            }
+            .package-card, .offer-card { max-width: 90%; }
         }
     </style>
 </head>
@@ -260,7 +324,7 @@
             <p>🎨 Escoge entre **GIF** o **WebM**, alta resolución y optimizado para tu transmisión.</p>
         </div>
 
-        <h2 class="section-title">✨ Nuestros Paquetes de Animación ✨</h2>
+        <h2 class="section-title">✨ Nuestros Paquetes de Animación Personalizada ✨</h2>
 
         <div class="packages">
             <div class="package-card">
@@ -294,9 +358,46 @@
                 <span class="highlight">🔥 ¡Ahorra hasta USD 10 con este paquete!</span>
             </div>
         </div>
+        
+        <h2 class="section-title">🛍️ Productos Instantáneos en Oferta</h2>
 
+        <div class="offer-section">
+            
+            <div class="offer-card">
+                <img 
+                    src="https://i.etsystatic.com/54395898/r/il/bb91ef/6886971562/il_794xN.6886971562_2af9.jpg" 
+                    alt="Bear Animated Emotes Pack"
+                >
+                <h3 class="offer-title">Bear Animated Emotes Pack</h3>
+                <p>Paquete de gestos ANIMADOS OSO para Twitch / Youtube Emotes / Discord Emotes / Streamer Emotes / Sub Emotes / Lindo paquete de 8 paquetes de oso pardo.</p>
+                <div style="margin-top: 15px;">
+                    <span class="current-price">USD 16.03</span>
+                    <span class="old-price">USD 21.37</span>
+                    <span class="discount-badge">-25 %</span>
+                </div>
+                <p class="sale-timer">• La oferta termina en 4 días</p>
+            </div>
+
+            <div class="offer-card">
+                <img 
+                    src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/174240215/original/ccb3ce4aa7702c04664bf8d4e76ddaf109b1116c/custom-animated-alert-for-your-stream-twich-discord-ecc.png" 
+                    alt="40 Chibi Kawaii Teddy Bear Emojis" 
+                    style="opacity: 0.5;"
+                >
+                <h3 class="offer-title">Paquete de 40 Emojis de Osito de Peluche</h3>
+                <p>Paquete de 40 emojis de osito de peluche para WhatsApp, Twitch, Discord, YouTube y Facebook. Pegatinas de chat con dibujos animados de Chibi Kawaii.</p>
+                <div style="margin-top: 15px;">
+                    <span class="current-price">USD 7.08</span>
+                    <span class="old-price">USD 23.60</span>
+                    <span class="discount-badge">-70 %</span>
+                </div>
+                <p class="sale-timer">• Oferta por tiempo limitado</p>
+                <p class="stock-info">Solo hay 5 y está en 1 carrito (5 de 5 estrellas)</p>
+            </div>
+            
+        </div>
         <div class="notes">
-            <h2>📝 Notas Importantes</h2>
+            <h2>📝 Notas Importantes para Animaciones Personalizadas</h2>
             <ul>
                 <li>Cada animación dura 2-5 segundos y se puede reproducir en bucle (loop).</li>
                 <li>Revisarás un boceto para aprobar antes de iniciar la animación final.</li>
@@ -308,7 +409,7 @@
 
     <footer>
         <p>💻 Visita y apóyanos aquí: <a href="https://buymeacoffee.com/luisnunez" target="_blank" style="color: var(--primary-color);">https://buymeacoffee.com/luisnunez</a></p>
-        <p>&copy; 2025 Servicios de Animación Personalizada. Creado para GitHub Pages.</p>
+        <p>&copy; 2025 Servicios de Animación Personalizada. Creado para el Negocio Digital.</p>
     </footer>
 
 </body>
