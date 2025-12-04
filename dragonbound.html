@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GunBound / Dragonbound - Código Fuente Servidor | Comprar</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome (iconos) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent:#6ee7b7;
+      --muted:#98a2b3;
+      --glass: rgba(255,255,255,0.03);
+      --radius:12px;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background: linear-gradient(180deg,#071024 0%, #081428 60%);
+      color:#e6eef8;
+      line-height:1.5;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    .container{max-width:1100px;margin:28px auto;padding:20px;}
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:22px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:14px;
+    }
+    .logo{
+      width:64px;height:64px;border-radius:10px;background:linear-gradient(135deg,#111827,#0b1220);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;color:var(--accent);box-shadow:0 6px 18px rgba(0,0,0,0.6);
+    }
+    h1{margin:0;font-size:20px}
+    p.lead{margin:6px 0 0;color:var(--muted);font-size:14px}
+
+    nav ul{list-style:none;padding:0;margin:0;display:flex;gap:12px;align-items:center;}
+    nav a{color:var(--accent);text-decoration:none;font-weight:600;padding:8px 12px;border-radius:8px;}
+    nav a:hover{background:var(--glass);}
+
+    .hero{
+      background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius);
+      padding:18px;
+      display:flex;
+      gap:18px;
+      align-items:flex-start;
+      margin-bottom:20px;
+      box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+    }
+
+    .hero-left{flex:1;min-width:280px}
+    .price{font-size:28px;color:var(--accent);font-weight:700;margin:6px 0}
+    .meta{color:var(--muted);font-size:13px;margin-bottom:10px}
+    .buy-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600;
+      box-shadow:0 6px 18px rgba(2,6,23,0.5);
+    }
+    .btn-peru{background:linear-gradient(90deg,#ff9246,#ff6b00);color:#111;}
+    .btn-primary{background:linear-gradient(90deg,#4f46e5,#06b6d4);color:white;}
+    .btn-secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);}
+    .btn i{font-size:14px}
+
+    .hero-right{width:320px;display:flex;flex-direction:column;gap:8px}
+    .thumb{width:100%;height:180px;background:#061226;border-radius:10px;display:block;overflow:hidden;border:1px solid rgba(255,255,255,0.03)}
+    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+
+    /* Gallery */
+    section.gallery{margin-top:26px;padding:18px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.007));border-radius:12px}
+    .section-title{margin:0 0 12px 0;font-size:18px}
+    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+    .gallery-item{background:var(--card);border-radius:10px;padding:8px;border:1px solid rgba(255,255,255,0.03)}
+    .gallery-item img{width:100%;height:150px;object-fit:cover;border-radius:8px;display:block}
+
+    /* Purchase section */
+    #purchase{margin-top:20px;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(6,10,24,0.6), rgba(6,12,28,0.4));border:1px solid rgba(255,255,255,0.03)}
+    #purchase h2{margin-top:0}
+    .purchase-details{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+    .features{flex:1;min-width:220px;color:var(--muted)}
+    .price-box{min-width:210px;padding:12px;border-radius:10px;background:linear-gradient(180deg,#061222,#04121a);text-align:center}
+    .price-box .amount{font-size:24px;font-weight:800;color:var(--accent)}
+    .small{font-size:13px;color:var(--muted);margin-top:6px}
+
+    footer{margin-top:28px;padding:18px;border-radius:8px;background:transparent;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .footer-section{min-width:200px}
+    .footer-links{list-style:none;padding:0;margin:8px 0 0 0}
+    .footer-links li{margin:6px 0}
+    .footer-links a{color:var(--muted);text-decoration:none}
+    .footer-links a:hover{color:var(--accent)}
+
+    /* Responsive */
+    @media (max-width:760px){
+      .hero{flex-direction:column}
+      .hero-right{width:100%}
+      .thumb{height:140px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">GB</div>
+        <div>
+          <h1>GunBound / Dragonbound — Código fuente servidor (Node.js)</h1>
+          <p class="lead">Código fuente completo del servidor del juego para Windows, macOS, Linux y Android</p>
+        </div>
+      </div>
+
+      <nav aria-label="navegación principal">
+        <ul>
+          <li><a href="#gallery">Galería</a></li>
+          <li><a href="#purchase">Comprar</a></li>
+          <li><a href="#soporte">Soporte</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-left">
+          <h2 id="hero-title">GunBound / Dragonbound Complete Game Server Source Code</h2>
+          <div class="meta">Una base de servidor lista para producción, con WebSockets, gestión de cuentas, economía, física del juego y más.</div>
+          <div class="price">99 USD</div>
+          <div class="meta">Incluye: lógica del juego, sistema multijugador escalable, base de datos configurada (MySQL/MariaDB), y más.</div>
+
+          <div class="buy-row" style="margin-top:12px;">
+            <a href="https://mpago.la/1e6p6de" class="btn btn-peru" target="_blank" rel="noopener">
+              <i class="fas fa-money-bill-wave"></i> Pagar con Mercado Pago (Solo Perú)
+            </a>
+
+            <a href="https://buymeacoffee.com/luisnunez/e/485673" class="btn btn-primary" target="_blank" rel="noopener">
+              <i class="fas fa-credit-card"></i> Pagar con Tarjeta (Global)
+            </a>
+
+            <a href="#contact" class="btn btn-secondary">
+              <i class="fas fa-envelope"></i> Contactar al vendedor
+            </a>
+          </div>
+        </div>
+
+        <aside class="hero-right" aria-hidden="false">
+          <a class="thumb" href="#gallery" title="Ver galería">
+            <!-- imagen destacada (usa la primera de la galería) -->
+            <img src="https://img.itch.zone/aW1hZ2UvNDA4NjMzOC8yNDM1NzQwMC5qcGc=/250x600/lumW20.jpg" alt="GunBound / Dragonbound preview">
+          </a>
+
+          <div style="font-size:13px;color:var(--muted);padding:8px;background:rgba(255,255,255,0.01);border-radius:8px">
+            <strong>Formato:</strong> Node.js (Express + WebSockets) • <strong>DB:</strong> MySQL/MariaDB • Soporte multiplataforma
+          </div>
+        </aside>
+      </section>
+
+      <!-- GALERÍA -->
+      <section id="gallery" class="gallery" aria-labelledby="gallery-title">
+        <h2 id="gallery-title" class="section-title">Galería del Juego</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="https://img.itch.zone/aW1hZ2UvNDA4NjMzOC8yNDM1NzQwMC5qcGc=/250x600/lumW20.jpg" alt="GunBound Screenshot 1">
+          </div>
+          <div class="gallery-item">
+            <img src="https://img.itch.zone/aW1hZ2UvNDA4NjMzOC8yNDM1NzQwMS5qcGc=/original/9UpcAj.jpg" alt="GunBound Screenshot 2">
+          </div>
+          <div class="gallery-item">
+            <img src="https://img.itch.zone/aW1hZ2UvNDA4NjMzOC8yNDM1NzQwMy5qcGc=/original/iz4L%2Fp.jpg" alt="GunBound Screenshot 3">
+          </div>
+          <div class="gallery-item">
+            <img src="https://img.itch.zone/aW1hZ2UvNDA4NjMzOC8yNDM1NzQwMi5qcGc=/original/CkReEw.jpg" alt="GunBound Screenshot 4">
+          </div>
+          <div class="gallery-item">
+            <img src="https://img.itch.zone/aW1hZ2UvNDA4NjMzOC8yNDM1NzQwMC5qcGc=/original/s6UyiA.jpg" alt="GunBound Screenshot 5">
+          </div>
+        </div>
+      </section>
+
+      <!-- COMPRA -->
+      <section id="purchase" aria-labelledby="purchase-title">
+        <h2 id="purchase-title">Comprar / Licencia</h2>
+        <div class="purchase-details">
+          <div class="features">
+            <p class="small"><strong>Contenido incluido:</strong></p>
+            <ul style="color:var(--muted);margin:8px 0 0 18px">
+              <li>Lógica completa de servidor (Node.js) y archivos del cliente HTML5</li>
+              <li>Sistema de cuentas, sesiones seguras, y gestión de inventario</li>
+              <li>Sistema multijugador escalable (múltiples "worlds")</li>
+              <li>Economía, recompensas y penalizaciones configurables</li>
+              <li>Soporte básico para despliegue y configuración (dotenv)</li>
+            </ul>
+            <p class="small" style="margin-top:10px">Recomendado: conocimientos de Node.js, npm, y bases de datos MySQL/MariaDB.</p>
+          </div>
+
+          <div class="price-box" role="group" aria-label="precio y acciones">
+            <div class="amount">99 USD</div>
+            <div class="small">Pago único — licencia comercial</div>
+
+            <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+              <a class="btn btn-peru" href="https://mpago.la/1e6p6de" target="_blank" rel="noopener">
+                <i class="fas fa-money-bill"></i> Mercado Pago (Perú)
+              </a>
+              <a class="btn btn-primary" href="https://buymeacoffee.com/luisnunez/e/485673" target="_blank" rel="noopener">
+                <i class="fas fa-credit-card"></i> Pagar con Tarjeta (Global)
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT / SOPORTE -->
+      <section id="soporte" style="margin-top:20px">
+        <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start">
+          <div style="flex:1;min-width:240px">
+            <h3>Soporte</h3>
+            <p class="small">¿Tienes dudas? Contáctame por BuyMeACoffee o por correo.</p>
+            <ul style="color:var(--muted);margin:8px 0 0 18px">
+              <li><a href="https://buymeacoffee.com/LuisNunez" target="_blank" rel="noopener">Buy Me a Coffee</a></li>
+              <li><a href="mailto:luisnunezberardo@gmail.com">luisnunezberardo@gmail.com</a></li>
+            </ul>
+          </div>
+
+          <div style="min-width:220px">
+            <h3 id="contact">Notas de entrega</h3>
+            <p class="small">Al comprar recibirás un enlace con los archivos (zip) y una guía rápida de instalación. La compra es digital — no hay producto físico.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-section">
+        <h4>Información</h4>
+        <ul class="footer-links">
+          <li><a href="#purchase">Comprar</a></li>
+          <li><a href="#soporte">Soporte</a></li>
+          <li><a href="#">Términos de Uso</a></li>
+          <li><a href="#">Política de Privacidad</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section" style="text-align:right">
+        <h4>Derechos</h4>
+        <p class="small">© <span id="year"></span> Luis Núñez. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // año en footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
